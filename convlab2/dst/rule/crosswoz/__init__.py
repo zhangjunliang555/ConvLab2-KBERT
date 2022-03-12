@@ -1,0 +1,1 @@
+from convlab2.dst.rule.crosswoz.dst import RuleDST

@@ -1,0 +1,217 @@
+{
+  "net": {
+    "port": 8085,
+    "app_name": "convlab2",
+    "session_time_out": 600
+  },
+  "nlu": {
+    "svm-cam": {
+      "class_path": "convlab2.nlu.svm.camrest.nlu.SVMNLU",
+      "data_set": "camrest",
+      "ini_params": {
+        "mode": "usr"
+      },
+      "model_name": "svm-cam",
+      "max_core": 1,
+      "preload": false,
+      "enable": false
+    },
+    "svm-mul": {
+      "class_path": "convlab2.nlu.svm.multiwoz.nlu.SVMNLU",
+      "data_set": "multiwoz",
+      "ini_params": {
+        "mode": "usr"
+      },
+      "model_name": "svm-mul",
+      "max_core": 1,
+      "preload": false,
+      "enable": false
+    },
+    "bert-cro": {
+      "class_path": "convlab2.nlu.jointBERT.crosswoz.nlu.BERTNLU",
+      "data_set": "crosswoz",
+      "ini_params": {
+        "mode": "all",
+        "config_file": "crosswoz_all.json",
+        "model_file": "https://convlab.blob.core.windows.net/convlab-2/bert_crosswoz_all.zip"
+      },
+      "model_name": "bert-cro",
+      "max_core": 1,
+      "preload": false,
+      "enable": false
+    },
+    "bert-context-cro": {
+      "class_path": "convlab2.nlu.jointBERT.crosswoz.nlu.BERTNLU",
+      "data_set": "crosswoz",
+      "ini_params": {
+        "mode": "usr",
+        "config_file": "crosswoz_usr_context.json",
+        "model_file": "pytorch_model_context.bin"
+      },
+      "model_name": "bert-context-cro",
+      "max_core": 1,
+      "preload": true,
+      "enable": true
+    },
+    "bert-context-kg-cro": {
+      "class_path": "convlab2.nlu.jointBERT.crosswoz.nlu.BERTNLU",
+      "data_set": "crosswoz",
+      "ini_params": {
+        "mode": "usr",
+        "config_file": "crosswoz_usr_context_kg.json",
+        "model_file": "pytorch_model.bin"
+      },
+      "model_name": "bert-context-kg-cro",
+      "max_core": 1,
+      "preload": true,
+      "enable": true
+    },
+    "bert-mul": {
+      "class_path": "convlab2.nlu.jointBERT.multiwoz.nlu.BERTNLU",
+      "data_set": "multiwoz",
+      "ini_params": {
+        "mode": "all",
+        "config_file": "multiwoz_all.json",
+        "model_file": "https://convlab.blob.core.windows.net/convlab-2/bert_multiwoz_all.zip"
+      },
+      "model_name": "bert-mul",
+      "max_core": 1,
+      "preload": false,
+      "enable": false
+    }
+  },
+  "dst": {
+    "rule-cam": {
+      "class_path": "convlab2.dst.rule.camrest.dst.RuleDST",
+      "data_set": "camrest",
+      "ini_params": {},
+      "model_name": "rule-cam",
+      "max_core": 1,
+      "preload": false,
+      "enable": false
+    },
+    "rule-mul": {
+      "class_path": "convlab2.dst.rule.multiwoz.dst.RuleDST",
+      "data_set": "multiwoz",
+      "ini_params": {},
+      "model_name": "rule-mul",
+      "max_core": 1,
+      "preload": false,
+      "enable": false
+    },
+    "rule-cro": {
+      "class_path": "convlab2.dst.rule.crosswoz.dst.RuleDST",
+      "data_set": "crosswoz",
+      "ini_params": {},
+      "model_name": "rule-cro",
+      "max_core": 1,
+      "preload": true,
+      "enable": true
+    },
+    "trade-mul": {
+      "class_path": "convlab2.dst.trade.multiwoz.trade.MultiWOZTRADE",
+      "data_set": "multiwoz",
+      "ini_params": {},
+      "model_name": "trade-mul",
+      "max_core": 1,
+      "preload": false,
+      "enable": false
+    }
+  },
+  "policy": {
+    "mle-cam": {
+      "class_path": "convlab2.policy.mle.camrest.mle.MLE",
+      "data_set": "camrest",
+      "ini_params": {},
+      "model_name": "mle-cam",
+      "max_core": 1,
+      "preload": false,
+      "enable": false
+    },
+    "mle-mul": {
+      "class_path": "convlab2.policy.mle.multiwoz.mle.MLE",
+      "data_set": "multiwoz",
+      "ini_params": {},
+      "model_name": "mle-mul",
+      "max_core": 1,
+      "preload": false,
+      "enable": false
+    },
+    "rule-cam": {
+      "class_path": "convlab2.policy.rule.camrest.rule_based_camrest_bot.RuleBasedCamrestBot",
+      "data_set": "camrest",
+      "ini_params": {},
+      "model_name": "rule-cam",
+      "max_core": 1,
+      "preload": false,
+      "enable": false
+    },
+    "rule-mul": {
+      "class_path": "convlab2.policy.rule.multiwoz.rule_based_multiwoz_bot.RuleBasedMultiwozBot",
+      "data_set": "multiwoz",
+      "ini_params": {},
+      "model_name": "rule-mul",
+      "max_core": 1,
+      "preload": false,
+      "enable": false
+    },
+    "mle-cro": {
+      "class_path": "convlab2.policy.mle.crosswoz.mle.MLE",
+      "data_set": "crosswoz",
+      "ini_params": {},
+      "model_name": "mle-cro",
+      "max_core": 1,
+      "preload": true,
+      "enable": true
+    }
+  },
+  "nlg": {
+    "tmp-manual-cam": {
+      "class_path": "convlab2.nlg.template.camrest.nlg.TemplateNLG",
+      "data_set": "camrest",
+      "ini_params": {
+        "is_user": false
+      },
+      "model_name": "tmp-manual-cam",
+      "max_core": 1,
+      "preload": false,
+      "enable": false
+    },
+    "tmp-auto_manual-cam": {
+      "class_path": "convlab2.nlg.template.camrest.nlg.TemplateNLG",
+      "data_set": "camrest",
+      "ini_params": {
+        "is_user": false,
+        "mode": "auto_manual"
+      },
+      "model_name": "tmp-auto_manual-cam",
+      "max_core": 1,
+      "preload": false,
+      "enable": false
+    },
+    "tmp-auto_manual-mul": {
+      "class_path": "convlab2.nlg.template.multiwoz.nlg.TemplateNLG",
+      "data_set": "multiwoz",
+      "ini_params": {
+        "is_user": false,
+        "mode": "auto_manual"
+      },
+      "model_name": "tmp-auto_manual-mul",
+      "max_core": 1,
+      "preload": false,
+      "enable": false
+    },
+    "tmp-auto_manual-cro": {
+      "class_path": "convlab2.nlg.template.crosswoz.nlg.TemplateNLG",
+      "data_set": "crosswoz",
+      "ini_params": {
+        "is_user": false,
+        "mode": "auto_manual"
+      },
+      "model_name": "tmp-auto_manual-cro",
+      "max_core": 1,
+      "preload": true,
+      "enable": true
+    }
+  }
+}
