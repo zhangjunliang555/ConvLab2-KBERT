@@ -39,7 +39,6 @@ https://github.com/thu-coai/ConvLab-2
 
 北大开源额将知识融合的输入语料中，即输入的含知识的句子树，利用可见矩阵让知识只对语料中的知识键起作用，对其他不可见，降低知识噪音影响。选择原因，有代码且是语料和知识是中文的。
 
-![img](file:///C:\Users\ZHANGJ~1\AppData\Local\Temp\ksohtml\wpsC8B6.tmp.png) 
 
 K-BERT总体架构图
 
